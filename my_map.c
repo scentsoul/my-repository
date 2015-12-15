@@ -148,7 +148,7 @@ void dijkstra(adjmatrix *G, int start, int end, int dist[], int path[][MAXVEX])
                 
             }
         }
-       // if(mindist == INFINITY)   return ;
+        if(mindist == INFINITY)   return ;
         path[k][0]=1;
         for(j=1; j<= G->vexnum; j++)
         {
@@ -171,10 +171,10 @@ void dijkstra(adjmatrix *G, int start, int end, int dist[], int path[][MAXVEX])
     {
         if(i==end) break;
     }printf("%s<---->%s的最短路径为:cong %s", G->vex[start].name, G->vex[end].name, G->vex[start].name);
-    for(i=2; path[i][j]; i++){
-    printf("%s<---->%s的最短路径为:从 %s", G->vex[start].name, G->vex[end].name, G->vex[start].name);
-    }
+    for(j=2; path[i][j]; j++){
+        printf("->%s",G->vex[path[i][j]].name);
         printf("->%s, 距离为 %d km\n", G->vex[end].name, dist[i]);
+    }
 }
 
 
